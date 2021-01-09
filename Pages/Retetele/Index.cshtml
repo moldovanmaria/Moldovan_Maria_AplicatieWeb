@@ -1,0 +1,54 @@
+﻿@page
+@model Moldovan_Maria_AplicatieWeb.Pages.Retetele.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th style="font-size:20px">
+                @Html.DisplayNameFor(model => model.Retete[0].Denumire)
+            </th>
+            <th style="font-size:20px">
+                @Html.DisplayNameFor(model => model.Retete[0].Ingrediente)
+            </th>
+            <th style="font-size:20px">
+                @Html.DisplayNameFor(model => model.Retete[0].Preparare)
+            </th>
+            <th style="font-size:20px">
+                @Html.DisplayNameFor(model => model.Retete[0].Timp)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Retete) {
+        <tr>
+            <td  style="color:brown ; font-size:20px">
+                @Html.DisplayFor(modelItem => item.Denumire)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ingrediente)
+            </td>
+            <td >
+                @Html.DisplayFor(modelItem => item.Preparare)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Timp)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
